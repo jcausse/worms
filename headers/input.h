@@ -3,27 +3,23 @@
 
 //INCLUDES
 #include "generalHeader.h"
-#include "visual.h"
+#include "allegroMain.h"
 
 //CLASSES
-class keys_t 
-{
+class Keys{
 public:
 	//Constructor
-	keys_t(float initialXPosition, float initialYPosition);
 
 	//Data members
-	bool key_up;
-	bool key_down;
-	bool key_left;
-	bool key_right;
+	bool keyUp;
+	bool keyLeft;
+	bool keyRight;
 
-	bool key_w;
-	bool key_s;
-	bool key_a;
-	bool key_d;
+	bool keyW;
+	bool keyA;
+	bool keyD;
 };
 
-void check_input(allegroPtrs_t* allegro, keys_t* key);
+void check_input(allegroPtrs_t* allegro, Keys* key);
 
 #endif /* INPUT_H */
