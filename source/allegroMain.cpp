@@ -1,7 +1,5 @@
 #include "../headers/allegroMain.h"
 
-#define WJUMP_MACRO(x) 
-
 allegroPtrs_t* allegroInit(void) {
 	allegroPtrs_t* allegroPtrs = (allegroPtrs_t*) malloc(sizeof(allegroPtrs_t));
 
@@ -38,7 +36,7 @@ allegroPtrs_t* allegroInit(void) {
     }
 
     //ALLEGRO RESOURCES INITIALIZATION
-   font = al_load_font("../resources/arial.ttf", 20, 0);
+    font = al_load_font("../resources/arial.ttf", 20, 0);
     if (!font) {
         fprintf(stderr, "Failed to create font!\n");
         return POINTER_FAIL;
@@ -49,7 +47,194 @@ allegroPtrs_t* allegroInit(void) {
         al_destroy_font(font);
         return POINTER_FAIL;
     }
-
+    wjumpArr[0] = al_load_bitmap("../resources/wjump/wjumpF1.png");
+    if (!wjumpArr[0]) {
+        fprintf(stderr, "Failed to load wjumpF1.png\n");
+        al_destroy_font(font);
+        al_destroy_bitmap(background);
+        for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
+            if (i < WJUMP_FRAMES) {
+                if (wjumpArr[i] != NULL) {
+                    al_destroy_bitmap(wjumpArr[i]);
+                }
+            }
+            if (i < WWALK_FRAMES) {
+                if (wwalkArr[i] != NULL) {
+                    al_destroy_bitmap(wwalkArr[i]);
+                }
+            }
+        }
+        return POINTER_FAIL;
+    }
+    wjumpArr[1] = al_load_bitmap("../resources/wjump/wjumpF2.png");
+    if (!wjumpArr[1]) {
+        fprintf(stderr, "Failed to load wjumpF2.png\n");
+        al_destroy_font(font);
+        al_destroy_bitmap(background);
+        for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
+            if (i < WJUMP_FRAMES) {
+                if (wjumpArr[i] != NULL) {
+                    al_destroy_bitmap(wjumpArr[i]);
+                }
+            }
+            if (i < WWALK_FRAMES) {
+                if (wwalkArr[i] != NULL) {
+                    al_destroy_bitmap(wwalkArr[i]);
+                }
+            }
+        }
+        return POINTER_FAIL;
+    }
+    wjumpArr[2] = al_load_bitmap("../resources/wjump/wjumpF3.png");
+    if (!wjumpArr[2]) {
+        fprintf(stderr, "Failed to load wjumpF3.png\n");
+        al_destroy_font(font);
+        al_destroy_bitmap(background);
+        for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
+            if (i < WJUMP_FRAMES) {
+                if (wjumpArr[i] != NULL) {
+                    al_destroy_bitmap(wjumpArr[i]);
+                }
+            }
+            if (i < WWALK_FRAMES) {
+                if (wwalkArr[i] != NULL) {
+                    al_destroy_bitmap(wwalkArr[i]);
+                }
+            }
+        }
+        return POINTER_FAIL;
+    }
+    wjumpArr[3] = al_load_bitmap("../resources/wjump/wjumpF4.png");
+    if (!wjumpArr[3]) {
+        fprintf(stderr, "Failed to load wjumpF4.png\n");
+        al_destroy_font(font);
+        al_destroy_bitmap(background);
+        for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
+            if (i < WJUMP_FRAMES) {
+                if (wjumpArr[i] != NULL) {
+                    al_destroy_bitmap(wjumpArr[i]);
+                }
+            }
+            if (i < WWALK_FRAMES) {
+                if (wwalkArr[i] != NULL) {
+                    al_destroy_bitmap(wwalkArr[i]);
+                }
+            }
+        }
+        return POINTER_FAIL;
+    }wjumpArr[4] = al_load_bitmap("../resources/wjump/wjumpF5.png");
+    if (!wjumpArr[4]) {
+        fprintf(stderr, "Failed to load wjumpF5.png\n");
+        al_destroy_font(font);
+        al_destroy_bitmap(background);
+        for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
+            if (i < WJUMP_FRAMES) {
+                if (wjumpArr[i] != NULL) {
+                    al_destroy_bitmap(wjumpArr[i]);
+                }
+            }
+            if (i < WWALK_FRAMES) {
+                if (wwalkArr[i] != NULL) {
+                    al_destroy_bitmap(wwalkArr[i]);
+                }
+            }
+        }
+        return POINTER_FAIL;
+    }
+    wjumpArr[5] = al_load_bitmap("../resources/wjump/wjumpF6.png");
+    if (!wjumpArr[5]) {
+        fprintf(stderr, "Failed to load wjumpF6.png\n");
+        al_destroy_font(font);
+        al_destroy_bitmap(background);
+        for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
+            if (i < WJUMP_FRAMES) {
+                if (wjumpArr[i] != NULL) {
+                    al_destroy_bitmap(wjumpArr[i]);
+                }
+            }
+            if (i < WWALK_FRAMES) {
+                if (wwalkArr[i] != NULL) {
+                    al_destroy_bitmap(wwalkArr[i]);
+                }
+            }
+        }
+        return POINTER_FAIL;
+    }
+    wjumpArr[6] = al_load_bitmap("../resources/wjump/wjumpF7.png");
+    if (!wjumpArr[6]) {
+        fprintf(stderr, "Failed to load wjumpF7.png\n");
+        al_destroy_font(font);
+        al_destroy_bitmap(background);
+        for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
+            if (i < WJUMP_FRAMES) {
+                if (wjumpArr[i] != NULL) {
+                    al_destroy_bitmap(wjumpArr[i]);
+                }
+            }
+            if (i < WWALK_FRAMES) {
+                if (wwalkArr[i] != NULL) {
+                    al_destroy_bitmap(wwalkArr[i]);
+                }
+            }
+        }
+        return POINTER_FAIL;
+    }wjumpArr[7] = al_load_bitmap("../resources/wjump/wjumpF8.png");
+    if (!wjumpArr[7]) {
+        fprintf(stderr, "Failed to load wjumpF8.png\n");
+        al_destroy_font(font);
+        al_destroy_bitmap(background);
+        for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
+            if (i < WJUMP_FRAMES) {
+                if (wjumpArr[i] != NULL) {
+                    al_destroy_bitmap(wjumpArr[i]);
+                }
+            }
+            if (i < WWALK_FRAMES) {
+                if (wwalkArr[i] != NULL) {
+                    al_destroy_bitmap(wwalkArr[i]);
+                }
+            }
+        }
+        return POINTER_FAIL;
+    }
+    wjumpArr[8] = al_load_bitmap("../resources/wjump/wjumpF9.png");
+    if (!wjumpArr[8]) {
+        fprintf(stderr, "Failed to load wjumpF9.png\n");
+        al_destroy_font(font);
+        al_destroy_bitmap(background);
+        for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
+            if (i < WJUMP_FRAMES) {
+                if (wjumpArr[i] != NULL) {
+                    al_destroy_bitmap(wjumpArr[i]);
+                }
+            }
+            if (i < WWALK_FRAMES) {
+                if (wwalkArr[i] != NULL) {
+                    al_destroy_bitmap(wwalkArr[i]);
+                }
+            }
+        }
+        return POINTER_FAIL;
+    }
+    wjumpArr[9] = al_load_bitmap("../resources/wjump/wjumpF10.png");
+    if (!wjumpArr[9]) {
+        fprintf(stderr, "Failed to load wjumpF10.png\n");
+        al_destroy_font(font);
+        al_destroy_bitmap(background);
+        for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
+            if (i < WJUMP_FRAMES) {
+                if (wjumpArr[i] != NULL) {
+                    al_destroy_bitmap(wjumpArr[i]);
+                }
+            }
+            if (i < WWALK_FRAMES) {
+                if (wwalkArr[i] != NULL) {
+                    al_destroy_bitmap(wwalkArr[i]);
+                }
+            }
+        }
+        return POINTER_FAIL;
+    }
     wwalkArr[0] = al_load_bitmap("../resources/wwalk/wwalkF1.png");
     if (!wwalkArr[0]) {
         fprintf(stderr, "Failed to load wwalkF1.png\n");
@@ -333,6 +518,8 @@ allegroPtrs_t* allegroInit(void) {
         }
         return POINTER_FAIL;
     }
+
+
 }
 void allegroDestroy(allegroPtrs_t* allegroPtrs) {
 	free(allegroPtrs);
