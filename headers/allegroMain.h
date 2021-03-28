@@ -4,8 +4,8 @@
 * 
 */
 
-#ifndef "ALLEGRO_MAIN_H"
-#define "ALLEGRO_MAIN_H"
+#ifndef ALLEGRO_MAIN_H
+#define ALLEGRO_MAIN_H
 
 //INCLUDES
 #include "generalHeader.h"
