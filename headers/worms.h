@@ -9,10 +9,12 @@
 #include "mainHeader.h"
 
 //CLASSES
-/*class Worms {
+/*class Worm {
 public:
-	Worms(float initialXPosition, float initialYPosition);
+	//Constructor
+	Worm(float initialXPosition, float initialYPosition);
 private:
+	//Data members
 	float xPosition;
 	float yPosition;
 };*/
