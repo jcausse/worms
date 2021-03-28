@@ -2,11 +2,13 @@
 * worms.h - Header file for worms objects
 */
 
-#ifndef HEADER_H
-#define HEADER_H
+#ifndef WORMS_H
+#define WORMS_H
 
+//INCLUDES
 #include "mainHeader.h"
 
+//CLASSES
 /*class Worms {
 public:
 	Worms(float initialXPosition, float initialYPosition);
@@ -15,4 +17,4 @@ private:
 	float yPosition;
 };*/
 
-#endif
+#endif /* WORMS_H */

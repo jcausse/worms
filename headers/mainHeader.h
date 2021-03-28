@@ -3,20 +3,20 @@
 * most of the files in the project
 */
 
-#ifndef MAIN_INCLUDES_H
-#define MAIN_INCLUDES_H
+#ifndef MAIN_HEADER_H
+#define MAIN_HEADER_H
 
 //INCLUDES
 //	1. Standard C++ libraries
 #include <iostream>
 #include <string>
-#include <math>
 
 //	2. Standard C libraries (legacy)
 #ifdef __cplusplus
 extern "C" {
 #endif
 #include <stdlib.h>
+#include <math.h>
 #ifdef __cplusplus
 }
 #endif
@@ -24,4 +24,4 @@ extern "C" {
 //	3. Non-standard libraries
 #include "constants.h"
 
-#endif
+#endif /*MAIN_HEADER_H*/
