@@ -18,7 +18,7 @@
     <ClCompile Include="source\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="worms.cpp">
+    <ClCompile Include="source\visual.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -26,11 +26,17 @@
     <ClInclude Include="headers\constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\mainHeader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="headers\worms.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="headers\generalHeader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\visual.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
