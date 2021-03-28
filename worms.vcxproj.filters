@@ -21,6 +21,12 @@
     <ClCompile Include="source\visual.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\worms.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\constants.h">
@@ -33,6 +39,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="headers\visual.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\allegroMain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

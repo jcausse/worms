@@ -150,12 +150,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\input.cpp" />
     <ClCompile Include="source\visual.cpp" />
     <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\worms.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="headers\allegroMain.h" />
     <ClInclude Include="headers\constants.h" />
     <ClInclude Include="headers\generalHeader.h" />
+    <ClInclude Include="headers\input.h" />
     <ClInclude Include="headers\visual.h" />
     <ClInclude Include="headers\worms.h" />
   </ItemGroup>

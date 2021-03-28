@@ -7,16 +7,25 @@
 
 //INCLUDES
 #include "generalHeader.h"
+#include "input.h"
 
 //CLASSES
-/*class Worm {
+class Worm {
 public:
 	//Constructor
 	Worm(float initialXPosition, float initialYPosition);
-private:
+	int state;
+
 	//Data members
-	float xPosition;
-	float yPosition;
-};*/
+	float x;
+	float y;
+	int wormmoves;
+	int salto;
+	bool wormsteady;
+	bool salto_cooldown;
+	bool wormright;
+};
+
+void move_worms(Worm* worm1, Worm* worm2, keys_t* key);
 
 #endif /* WORMS_H */
