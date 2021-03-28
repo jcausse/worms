@@ -3,13 +3,19 @@
 
 //INCLUDES
 #include "mainHeader.h"
+#include "worms.h"
 #include <allegro5/allegro5.h>
 #include <allegro5/allegro_image.h>
 #include <allegro5/allegro_font.h>
+#include <allegro5/allegro_ttf.h>
 
 //STRUCTURES
+//This structure contains pointers to all objects created and used by Allegro. This is needed to have separate
+//functions for initialization, drawing, and destroys
 typedef struct {
+	//Display
 	ALLEGRO_DISPLAY* display;
+	//Bitmaps
 	ALLEGRO_BITMAP* background;
 	ALLEGRO_BITMAP* wjumpF1;
 	ALLEGRO_BITMAP* wjumpF2;
@@ -36,7 +42,22 @@ typedef struct {
 	ALLEGRO_BITMAP* wwalkF13;
 	ALLEGRO_BITMAP* wwalkF14;
 	ALLEGRO_BITMAP* wwalkF15;
+	//Bitmap pointer arrays
+	ALLEGRO_BITMAP* wjumpArr[10];
+	ALLEGRO_BITMAP* wwalkArr[15];
+	//Other
 	ALLEGRO_EVENT_QUEUE* eventQueue;
 	ALLEGRO_FONT* font;
-};
-#endif /* VISUAL_H */
+}allegroPtrs_t;
+
+//PROTOTYPES
+allegroPtrs_t* allegroInit(void);
+//This function initializes Allegro and all needed addons
+//allegroPtrs_t * is a pointer to a allegroPtrs_t - type structure which will contain all the pointers to the Allegro - created objects
+void allegroDestroy(allegroPtrs_t*);
+//This function destroys all Allegro - created resources / objects
+void allegroClearToBackground(allegroPtrs_t*);
+//This function clears the display, leaving only the background visible
+void allegroDrawWorm(allegroPtrs_t*, Worm);
+//This function draws the worm. "Worm" is a Worm object defined in worms.h
+
