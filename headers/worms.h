@@ -6,7 +6,7 @@
 #define WORMS_H
 
 //INCLUDES
-#include "mainHeader.h"
+#include "generalHeader.h"
 
 //CLASSES
 /*class Worm {

@@ -1,10 +1,10 @@
 /*
-* mainHeader.h - This is the main header of the project. It contains all the includes and general purpose classes needed by
+* generalHeader.h - This is the main header of the project. It contains all the includes and general purpose classes needed by
 * most of the files in the project
 */
 
-#ifndef MAIN_HEADER_H
-#define MAIN_HEADER_H
+#ifndef GENERAL_HEADER_H
+#define GENERAL_HEADER_H
 
 //INCLUDES
 //	1. Standard C++ libraries
@@ -24,4 +24,4 @@ extern "C" {
 //	3. Non-standard libraries
 #include "constants.h"
 
-#endif /*MAIN_HEADER_H*/
+#endif /*GENERAL_HEADER_H*/
