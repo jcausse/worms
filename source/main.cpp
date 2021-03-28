@@ -9,7 +9,7 @@
 */
 
 #include <iostream>
-#include "../headers/mainHeader.h"
+#include "../headers/generalHeader.h"
 
 int main (void){
     std::cout << "TP4. Worms. Grupo 9." << std::endl;
