@@ -9,7 +9,7 @@
 */
 
 #include <iostream>
-#include "generalHeader.h"
+#include "../headers/generalHeader.h"
 
 
 int main(void) {

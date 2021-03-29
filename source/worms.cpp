@@ -1,31 +1,26 @@
-#include "worms.h"
+#include "../headers/worms.h"
 
 void go_up(Worm* worm);
-void go_down(Worm* worm);
 void go_right(Worm* worm);
 void go_left(Worm* worm);
 void jumping(Worm* worm);
 
-void move_worms(Worm* worm1, Worm* worm2, keys_t* key)
+void move_worms(Worm* worm1, Worm* worm2, Keys* key)
 {
-    if (key->key_up == true)
+    if (key->keyUp == true)
         go_up(worm1);
     else released_up(worm1);
-    if (key->key_down == true)
-        go_down(worm1);
-    if (key->key_right == true)
+    if (key->keyRight == true)
         go_right(worm1);
-    if (key->key_up == true)
+    if (key->keyLeft == true)
         go_left(worm1);
 
-    if (key->key_w == true)
+    if (key->keyW == true)
         go_up(worm2);
     else released_up(worm2);
-    if (key->key_s == true)
-        go_down(worm2);
-    if (key->key_d == true)
+    if (key->keyD == true)
         go_right(worm2);
-    if (key->key_a == true)
+    if (key->keyA == true)
         go_left(worm2);
 
     jumping(worm1);
@@ -54,15 +49,6 @@ void released_up(Worm* worm)
     (worm->salto_lock) = false;
 }
 
-void go_down(Worm* worm)
-{
-    if (collidewborder(worm->x, worm->y + MOVE_RATE))
-    {
-        (worm->y) += MOVE_RATE;
-        worm->wormmoves++;
-        worm->wormsteady = false;
-    }
-}
 
 void go_left(Worm* worm)
 {

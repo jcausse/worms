@@ -26,6 +26,6 @@ public:
 	bool wormright;
 };
 
-void move_worms(Worm* worm1, Worm* worm2, keys_t* key);
+void move_worms(Worm* worm1, Worm* worm2, Keys* key);
 
 #endif /* WORMS_H */

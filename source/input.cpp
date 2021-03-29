@@ -2,7 +2,7 @@
 
 
 
-void check_input(allegroPtrs_t * allegro, keys_t* key)
+void check_input(allegroPtrs_t * allegro, Keys* key)
 {
 
     ALLEGRO_EVENT ev;
