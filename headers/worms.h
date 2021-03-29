@@ -22,7 +22,8 @@ public:
 	int wormmoves;
 	int salto;
 	bool wormsteady;
-	bool salto_cooldown;
+	int salto_cooldown;
+	bool salto_lock;
 	bool wormright;
 };
 

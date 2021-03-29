@@ -11,85 +11,69 @@ void check_input(allegroPtrs_t * allegro, Keys* key)
         if (ev.type == ALLEGRO_EVENT_TIMER)
             allegro->redraw = true;
 
-        else if (ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE)//Si se cierra el display o click de mouse cerrar
+        if (ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE)//Si se cierra el display o click de mouse cerrar
             allegro->do_exit = true;
 
 
-        else if (ev->type == ALLEGRO_EVENT_DISPLAY_CLOSE)
+        else if (ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
             allegro->do_exit = true;
 
-        else if (ev->type == ALLEGRO_EVENT_KEY_DOWN)
+        else if (ev.type == ALLEGRO_EVENT_KEY_DOWN)
         {
-            switch (ev->keyboard.keycode)
+            switch (ev.keyboard.keycode)
             {
             case ALLEGRO_KEY_UP:
-                key->key_up = true;
-                break;
-
-            case ALLEGRO_KEY_DOWN:
-                key->key_down = true;
+                key->keyUp = true;
                 break;
 
             case ALLEGRO_KEY_LEFT:
-                key->key_left = true;
+                key->keyLeft = true;
                 break;
 
             case ALLEGRO_KEY_RIGHT:
-                key->key_right = true;
+                key->keyRight = true;
                 break;
 
             case ALLEGRO_KEY_W:
-                key->key_w = true;
-                break;
-
-            case ALLEGRO_KEY_S:
-                key->key_s = true;
+                key->keyW = true;
                 break;
 
             case ALLEGRO_KEY_A:
-                key->key_a = true;
+                key->keyA = true;
                 break;
 
             case ALLEGRO_KEY_D:
-                key->key_d = true;
+                key->keyD = true;
                 break;
             }
         }
 
-        else if (ev->type == ALLEGRO_EVENT_KEY_UP)
+        else if (ev.type == ALLEGRO_EVENT_KEY_UP)
         {
-            switch (ev->keyboard.keycode)
+            switch (ev.keyboard.keycode)
             {
             case ALLEGRO_KEY_UP:
-                key->key_up = true;
-                break;
-
-            case ALLEGRO_KEY_DOWN:
-                key->key_down = true;
+                key->keyUp = true;
                 break;
 
             case ALLEGRO_KEY_LEFT:
-                key->key_left = true;
+                key->keyLeft = true;
                 break;
 
             case ALLEGRO_KEY_RIGHT:
-                key->key_right = true;
+                key->keyRight = true;
                 break;
 
             case ALLEGRO_KEY_W:
-                key->key_w = true;
-                break;
-
-            case ALLEGRO_KEY_S:
-                key->key_s = true;
+                key->keyW = true;
                 break;
 
             case ALLEGRO_KEY_A:
-                key->key_a = true;
+                key->keyA = true;
                 break;
 
             case ALLEGRO_KEY_D:
-                key->key_d = true;
+                key->keyD = true;
                 break;
             }
         }

@@ -22,4 +22,10 @@
 #define REFRESH_RATE_S 0.02
 #define GRAVITY 0.24
 
+//MOVEMENT CONSTANTS
+#define MOVE_RATE 2.0
+#define SALTO_COOLDOWN 30
+#define SALTO_H 10
+#define SALTO_SPEED 1
+
 #endif /* CONSTANTS_H */

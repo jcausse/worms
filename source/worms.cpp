@@ -56,7 +56,7 @@ void go_left(Worm* worm)
     {
         (worm->x) -= MOVE_RATE;
         worm->wormmoves++;
-        worm->marioright = false;
+        worm->wormright = false;
         worm->wormsteady = false;
     }
 }
@@ -96,47 +96,49 @@ void jumping(Worm* worm)
 collidewborder(float x,float y) //si choco con algo devuelve false
 
 
-
-if ((!collidewborder() && wormsteady == true)//Deteccion de si el worm está estático en el suelo
+void animationState()
 {
-    if (worm->wormright == true)
-        al_draw_bitmap(worm6, (worm->x), (worm->y), 0);
-    else al_draw_bitmap(worm6, (worm->x), (worm->y), ALLEGRO_FLIP_HORIZONTAL);
-}
-else if (worm->wormmoves < 20 && wormmove >= 0)
-{
-    if (worm->wormright == true)
-        al_draw_bitmap(worm1, (worm->x), (worm->y), 0);
-    else al_draw_bitmap(worm1, (worm->x), (worm->y), ALLEGRO_FLIP_HORIZONTAL);
-}
-else if (worm->wormmoves < 40)
-{
-    if (worm->wormright == true)
-        al_draw_bitmap(worm2, (worm->x), (worm->y), 0);
-    else al_draw_bitmap(worm2, (worm->x), (worm->y), ALLEGRO_FLIP_HORIZONTAL);
-}
-else if (worm->wormmoves < 60)
-{
-    if (worm->wormright == true)
-        al_draw_bitmap(worm3, (worm->x), (worm->y), 0);
-    else al_draw_bitmap(worm3, (worm->x), (worm->y), ALLEGRO_FLIP_HORIZONTAL);
-}
-else if (worm->wormmoves < 80)
-{
-    if (worm->wormright == true)
-        al_draw_bitmap(worm4, (worm->x), (worm->y), 0);
-    else al_draw_bitmap(worm4, (worm->x), (worm->y), ALLEGRO_FLIP_HORIZONTAL);
-}
-else if (worm->wormmoves < 100)
-{
-    if (worm->wormright == true)
-        al_draw_bitmap(worm5, (worm->x), (worm->y), 0);
-    else al_draw_bitmap(worm5, (worm->x), (worm->y), ALLEGRO_FLIP_HORIZONTAL);
-}
-else
-{
-    worm->wormmoves = 0;
-    if (worm->wormright == true)
-        al_draw_bitmap(worm5, (worm->x), (worm->y), 0);
-    else al_draw_bitmap(worm5, (worm->x), (worm->y), ALLEGRO_FLIP_HORIZONTAL);
+    if ((!collidewborder() && wormsteady == true)//Deteccion de si el worm está estático en el suelo
+    {
+        if (worm->wormright == true)
+            al_draw_bitmap(worm6, (worm->x), (worm->y), 0);
+        else al_draw_bitmap(worm6, (worm->x), (worm->y), ALLEGRO_FLIP_HORIZONTAL);
+    }
+    else if (worm->wormmoves < 20 && wormmove >= 0)
+    {
+        if (worm->wormright == true)
+            al_draw_bitmap(worm1, (worm->x), (worm->y), 0);
+        else al_draw_bitmap(worm1, (worm->x), (worm->y), ALLEGRO_FLIP_HORIZONTAL);
+    }
+    else if (worm->wormmoves < 40)
+    {
+        if (worm->wormright == true)
+            al_draw_bitmap(worm2, (worm->x), (worm->y), 0);
+        else al_draw_bitmap(worm2, (worm->x), (worm->y), ALLEGRO_FLIP_HORIZONTAL);
+    }
+    else if (worm->wormmoves < 60)
+    {
+        if (worm->wormright == true)
+            al_draw_bitmap(worm3, (worm->x), (worm->y), 0);
+        else al_draw_bitmap(worm3, (worm->x), (worm->y), ALLEGRO_FLIP_HORIZONTAL);
+    }
+    else if (worm->wormmoves < 80)
+    {
+        if (worm->wormright == true)
+            al_draw_bitmap(worm4, (worm->x), (worm->y), 0);
+        else al_draw_bitmap(worm4, (worm->x), (worm->y), ALLEGRO_FLIP_HORIZONTAL);
+    }
+    else if (worm->wormmoves < 100)
+    {
+        if (worm->wormright == true)
+            al_draw_bitmap(worm5, (worm->x), (worm->y), 0);
+        else al_draw_bitmap(worm5, (worm->x), (worm->y), ALLEGRO_FLIP_HORIZONTAL);
+    }
+    else
+    {
+        worm->wormmoves = 0;
+        if (worm->wormright == true)
+            al_draw_bitmap(worm5, (worm->x), (worm->y), 0);
+        else al_draw_bitmap(worm5, (worm->x), (worm->y), ALLEGRO_FLIP_HORIZONTAL);
+    }
 }
