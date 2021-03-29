@@ -21,6 +21,11 @@
 #define REFRESH_RATE_HZ 50	//Set refresh rate to 50 Hz. This means the display is updated every 0.02 seconds
 #define REFRESH_RATE_S 0.02
 #define GRAVITY 0.24
+#define BORDEXIZQ 701
+#define BORDEXDER 1212
+#define PISOY 616
+#define SIZEWORM 60
+
 
 //MOVEMENT CONSTANTS
 #define MOVE_RATE 2.0

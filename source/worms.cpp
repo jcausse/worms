@@ -95,7 +95,13 @@ void jumping(Worm* worm)
 
 int collidewborder(float x, float y) //si choco con algo devuelve false
 {
-    return false;
+    if (x < BORDEXIZQ || (x + SIZEWORM) > BORDEXDER) {
+        return false;
+    }
+    else {
+        return true;
+    }
+    
 }
 
 
