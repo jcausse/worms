@@ -599,15 +599,31 @@ allegroPtrs_t* allegroInit(void) {
     allegroPtrs->font = font;
     allegroPtrs->background = background;
     for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
-        if (i < WJUMP_FRAMES) {
+        if (i < WJUMP_FRAMES)
             allegroPtrs->wjumpArr[i] = wjumpArr[i];
-        if (i < WWALK_FRAMES) {
+        if (i < WWALK_FRAMES)
             allegroPtrs->wwalkArr[i] = wwalkArr[i];
-        }
     }
 
     return allegroPtrs; //Return structure pointer
 }
+
 void allegroDestroy(allegroPtrs_t* allegroPtrs) {
-	free(allegroPtrs);
+    al_destroy_display(allegroPtrs->display);
+    al_destroy_font(allegroPtrs->font);
+    al_destroy_bitmap(allegroPtrs->background);
+    al_destroy_event_queue(allegroPtrs->eventQueue);
+    for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
+        if (i < WJUMP_FRAMES) {
+            if (wjumpArr[i] != NULL) {
+                al_destroy_bitmap(allegroPtrs->wjumpArr[i]);
+            }
+        }
+        if (i < WWALK_FRAMES) {
+            if (wwalkArr[i] != NULL) {
+                al_destroy_bitmap(allegroPtrs->wwalkArr[i]);
+            }
+        }
+    }
+    free(allegroPtrs);
 }

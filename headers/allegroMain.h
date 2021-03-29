@@ -16,10 +16,6 @@
 #include <allegro5/allegro_font.h>
 #include <allegro5/allegro_ttf.h>
 
-//CONSTANTS
-#define WJUMP_FRAMES 10
-#define WWALK_FRAMES 15
-
 //STRUCTURES
 	//This structure contains pointers to all objects created and used by Allegro. This is needed to have separate
 	//functions for initialization, drawing, and destroys
