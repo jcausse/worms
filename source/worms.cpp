@@ -4,6 +4,22 @@ void go_up(Worm* worm);
 void go_right(Worm* worm);
 void go_left(Worm* worm);
 void jumping(Worm* worm);
+void released_up(Worm* worm);
+int collidewborder(float x, float y);
+
+
+Worm::Worm(float initialXPosition, float initialYPosition)
+{
+    x= initialXPosition;
+    y= initialYPosition;
+    wormmoves=0;
+    salto=0;
+    wormsteady=true;
+    salto_cooldown=0;
+    salto_lock=false;
+    wormright=true;
+}
+
 
 void move_worms(Worm* worm1, Worm* worm2, Keys* key)
 {
@@ -107,7 +123,7 @@ int collidewborder(float x, float y) //si choco con algo devuelve false
 
 void animationState()
 {
-    if ((!collidewborder() && wormsteady == true)//Deteccion de si el worm está estático en el suelo
+    if (!collidewborder() && wormsteady == true)//Deteccion de si el worm está estático en el suelo
     {
         if (worm->wormright == true)
             al_draw_bitmap(worm6, (worm->x), (worm->y), 0);

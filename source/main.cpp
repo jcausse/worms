@@ -8,8 +8,6 @@
 *   Greco, Trinidad Eugenia. Legajo 61118.
 */
 
-#include <iostream>
-#include "../headers/generalHeader.h"
 #include "../headers/allegroMain.h"
 #include "../headers/worms.h"
 
@@ -18,20 +16,23 @@ int main(void) {
 
     allegroPtrs_t al;
 
-    Worm worm1;
-    Worm worm2;
+    Worm worm1(800.,500.); //se inicializan ambos worms con sus posicones iniciales
+    Worm worm2(800.,500.);
 
     Keys keys;
 
-    while (!al.do_exit) // idem anterior
+    bool do_exit = false;
+    bool redraw = false;
+
+    while (!do_exit) // idem anterior
     {
-        check_input(&al, &keys);
+        checkInput(&al, &keys,&redraw,&do_exit);
 
-        if (al.redraw && al_is_event_queue_empty(al.eventQueue))
+        if (redraw && al_is_event_queue_empty(al.eventQueue))
         {
-            al.redraw = false;
+            redraw = false;
 
-            move_worms(&worm1, &worm2, keys);
+            move_worms(&worm1, &worm2, &keys);
 
             draw_all();//fincion que deberia dibujar todo
 

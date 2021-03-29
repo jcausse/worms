@@ -14,7 +14,7 @@ class Worm {
 public:
 	//Constructor
 	Worm(float initialXPosition, float initialYPosition);
-	int state;
+	//int state;
 
 	//Data members
 	float x;

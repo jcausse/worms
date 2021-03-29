@@ -2,21 +2,21 @@
 
 
 
-void check_input(allegroPtrs_t * allegro, Keys* key)
+void checkInput(allegroPtrs_t * allegro, Keys* key,bool* redraw,bool* do_exit)
 {
 
     ALLEGRO_EVENT ev;
     if (al_get_next_event(allegro->eventQueue, &ev)) //Toma un evento de la cola
     {
         if (ev.type == ALLEGRO_EVENT_TIMER)
-            allegro->redraw = true;
+            *redraw = true;
 
         if (ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE)//Si se cierra el display o click de mouse cerrar
-            allegro->do_exit = true;
+            *do_exit = true;
 
 
         else if (ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
-            allegro->do_exit = true;
+            *do_exit = true;
 
         else if (ev.type == ALLEGRO_EVENT_KEY_DOWN)
         {
