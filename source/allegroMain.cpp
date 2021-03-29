@@ -14,9 +14,11 @@ allegroPtrs_t* allegroInit(void) {
     ALLEGRO_BITMAP* wwalkArr[WWALK_FRAMES];
     ALLEGRO_EVENT_QUEUE* eventQueue = NULL;
     ALLEGRO_FONT* font = NULL;
+    //The following for cycle initializes the elements of both arrays as NULL pointers. To do this in a single
+    //repetition structure, the maximum value for i is the number of elements of the largest array
     for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
-        if (i < WJUMP_FRAMES)
-            wjumpArr[i] = NULL;
+        if (i < WJUMP_FRAMES)   //Then we initialize the pointers in both arrays as NULL, keeping in mind
+            wjumpArr[i] = NULL; //that they are not necessarily the same size
         if (i < WWALK_FRAMES)
             wwalkArr[i] = NULL;
     }
