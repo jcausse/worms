@@ -93,7 +93,10 @@ void jumping(Worm* worm)
 
 
 
-collidewborder(float x,float y) //si choco con algo devuelve false
+int collidewborder(float x, float y) //si choco con algo devuelve false
+{
+    return false;
+}
 
 
 void animationState()

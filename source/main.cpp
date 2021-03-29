@@ -10,7 +10,8 @@
 
 #include <iostream>
 #include "../headers/generalHeader.h"
-
+#include "../headers/allegroMain.h"
+#include "../headers/worms.h"
 
 int main(void) {
     std::cout << "TP4. Worms. Grupo 9." << std::endl;
@@ -20,7 +21,7 @@ int main(void) {
     Worm worm1;
     Worm worm2;
 
-    keys_t keys;
+    Keys keys;
 
     while (!al.do_exit) // idem anterior
     {
