@@ -9,6 +9,8 @@
 
 //INCLUDES
 #include "generalHeader.h"
+#include "input.h"
+#include "visual.h"
 #include <allegro5/allegro5.h>
 #include <allegro5/allegro_image.h>
 #include <allegro5/allegro_font.h>
