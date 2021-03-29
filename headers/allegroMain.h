@@ -32,8 +32,6 @@ typedef struct {
 	//Other
 	ALLEGRO_EVENT_QUEUE* eventQueue;
 	ALLEGRO_FONT* font;
-	bool redraw;
-	bool do_exit;
 }allegroPtrs_t;
 
 //PROTOTYPES
