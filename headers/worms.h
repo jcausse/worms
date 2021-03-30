@@ -25,8 +25,15 @@ public:
 	int salto_cooldown;
 	bool salto_lock;
 	bool wormright;
+
+	void go_up();
+	void go_right();
+	void go_left();
+	void jumping();
+	void released_up();
 };
 
 void move_worms(Worm* worm1, Worm* worm2, Keys* key);
+int collidewborder(float x, float y);
 
 #endif // WORMS_H 

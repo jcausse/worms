@@ -1,12 +1,5 @@
 #include "../headers/worms.h"
 
-void go_up(Worm* worm);
-void go_right(Worm* worm);
-void go_left(Worm* worm);
-void jumping(Worm* worm);
-void released_up(Worm* worm);
-int collidewborder(float x, float y);
-void update(int estado);
 
 
 Worm::Worm(float initialXPosition, float initialYPosition)
@@ -25,85 +18,85 @@ Worm::Worm(float initialXPosition, float initialYPosition)
 void move_worms(Worm* worm1, Worm* worm2, Keys* key)
 {
     if (key->keyUp == true)
-        go_up(worm1);
-    else released_up(worm1);
+        worm1->go_up();
+    else worm1->released_up();
     if (key->keyRight == true)
-        go_right(worm1);
+        worm1->go_right();
     if (key->keyLeft == true)
-        go_left(worm1);
+        worm1->go_left();
 
     if (key->keyW == true)
-        go_up(worm2);
-    else released_up(worm2);
+        worm2->go_up();
+    else worm2->released_up();
     if (key->keyD == true)
-        go_right(worm2);
+        worm2->go_right();
     if (key->keyA == true)
-        go_left(worm2);
+        worm2->go_left();
 
-    jumping(worm1);
-    jumping(worm2);
+    worm1->jumping();
+    worm2->jumping();
 
 }
 
 
 
-void go_up(Worm* worm)
+void Worm::go_up()
 {
-    worm->wormsteady = true;
-    if (collidewborder(worm->x, worm->y-MOVE_RATE))
-        worm->wormmoves++;
-    worm->wormsteady = false;
-    if ((worm->salto_cooldown) == 0 && (worm->salto_lock) == false)
+    wormsteady = true;
+    if (collidewborder(x, y-MOVE_RATE))
+        wormmoves++;
+    wormsteady = false;
+    if ((salto_cooldown) == 0 && (salto_lock) == false)
     {
-        (worm->salto_cooldown) = SALTO_COOLDOWN;
-        (worm->salto) = SALTO_H;
-        (worm->salto_lock) = true;
+        (salto_cooldown) = SALTO_COOLDOWN;
+        (salto) = SALTO_H;
+        (salto_lock) = true;
     }
 }
 
-void released_up(Worm* worm)
+void Worm:: released_up(void)
 {
-    (worm->salto_lock) = false;
+    (salto_lock) = false;
 }
 
 
-void go_left(Worm* worm)
+void Worm:: go_left(void)
 {
-    if (collidewborder(worm->x - MOVE_RATE, worm->y ))
+    if (collidewborder(x - MOVE_RATE, y ))
     {
-        (worm->x) -= MOVE_RATE;
-        worm->wormmoves++;
-        worm->wormright = false;
-        worm->wormsteady = false;
+        (x) -= MOVE_RATE;
+        wormmoves++;
+        wormright = false;
+        wormsteady = false;
     }
 }
 
-void go_right(Worm* worm)
+void Worm:: go_right(void)
 {
-    if (collidewborder(worm->x + MOVE_RATE, worm->y ))
+    if (collidewborder(x + MOVE_RATE, y ))
     {
-        (worm->x) += MOVE_RATE;
-        worm->wormmoves++;
-        worm->wormright = true;
-        worm->wormsteady = false;
+        (x) += MOVE_RATE;
+        wormmoves++;
+        wormright = true;
+        wormsteady = false;
     }
 }
 
-void jumping(Worm* worm)
+void Worm:: jumping(void)
 {
-    if (collidewborder(worm->x, worm->y + MOVE_RATE)) //Mario cae siempre que no detecte nada abajo de él
+    if (collidewborder(x, y + MOVE_RATE)) //Mario cae siempre que no detecte nada abajo de él
     {
-        (worm->y) += MOVE_RATE / 3;
-        worm->wormmoves++;
+        (y) += MOVE_RATE / 3;
+        wormmoves++;
     }
 
-    if ((worm->salto_cooldown) > 0) //Se disminuye la variable (worm->salto_cooldown) en cada loop, la cual sirve como un temporizador que no deja que Mario vuelva a saltar
-        (worm->salto_cooldown)--;
+    if ((salto_cooldown) > 0) //Se disminuye la variable (salto_cooldown) en cada loop, la cual sirve como un temporizador que no deja que Mario vuelva a saltar
+        (salto_cooldown)--;
 
-    if (collidewborder(worm->x, worm->y - MOVE_RATE)) //Mario salta lo determinado por la variable saltito
+    if (collidewborder(x, y - MOVE_RATE)) //Mario salta lo determinado por la variable saltito
     {
-        (worm->salto) -= 1;
-        (worm->y) -= MOVE_RATE * SALTO_SPEED;
+        (salto) -= 1;
+        (y) -= MOVE_RATE * SALTO_SPEED;
     }
    
 }
