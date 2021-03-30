@@ -2,7 +2,6 @@
 #define INPUT_H
 
 //INCLUDES
-#include "generalHeader.h"
 #include "allegroMain.h"
 
 //CLASSES
