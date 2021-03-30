@@ -29,4 +29,4 @@ public:
 
 void move_worms(Worm* worm1, Worm* worm2, Keys* key);
 
-#endif /* WORMS_H */
+#endif // WORMS_H 

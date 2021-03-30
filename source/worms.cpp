@@ -6,6 +6,7 @@ void go_left(Worm* worm);
 void jumping(Worm* worm);
 void released_up(Worm* worm);
 int collidewborder(float x, float y);
+void update(int estado);
 
 
 Worm::Worm(float initialXPosition, float initialYPosition)
@@ -111,7 +112,7 @@ void jumping(Worm* worm)
 
 int collidewborder(float x, float y) //si choco con algo devuelve false
 {
-    if (x < BORDEXIZQ || (x + SIZEWORM) > BORDEXDER) {
+    if (x <= BORDEXIZQ || (x + SIZEWORM) >= BORDEXDER) {
         return false;
     }
     else {
@@ -166,4 +167,67 @@ void animationState()
             al_draw_bitmap(worm5, (worm->x), (worm->y), 0);
         else al_draw_bitmap(worm5, (worm->x), (worm->y), ALLEGRO_FLIP_HORIZONTAL);
     }
+}
+
+void update(int estado) {
+    switch (estado) {
+    case START_MOVING_LEFT:
+    {
+        if (frameCount < 5) {
+            frameCount++;
+        }
+        else {
+            estado = MOVE_LEFT;
+        }
+        break;
+    }
+    case START_MOVING_RIGHT:
+    {
+        if (frameCount < 5) {
+            frameCount++;
+        }
+        else {
+            estado = MOVE_RIGHT;
+        }
+        break;
+    }
+    case MOVING_LEFT:
+    {
+        if (frameCount < 19) {
+            img = getImage(frameCount - 5);
+        }
+        else if (framecount < 33) {
+            img = getImage(frameCount - 19);
+        }
+        else if (frameCount - 47) {
+            img = getImage(frameCount - 38);
+        }
+        else {
+            worm.x += 27;
+        }
+        go_left;
+        estado = START_MOVING_LEFT;
+        frameCount = 0;
+        break;
+    }
+    case MOVING_RIGHT:
+    {
+        if (frameCount < 19) {
+            img = getImage(frameCount - 5);
+        }
+        else if (framecount < 33) {
+            img = getImage(frameCount - 19);
+        }
+        else if (frameCount - 47) {
+            img = getImage(frameCount - 38);
+        }
+        else {
+            worm.x += 27;
+        }
+        go_right;
+        estado = START_MOVING_RIGHT;
+        frameCount = 0;
+        break;
+    }
+        
 }
