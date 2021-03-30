@@ -121,7 +121,7 @@ int collidewborder(float x, float y) //si choco con algo devuelve false
     
 }
 
-
+/*
 void animationState()
 {
     if (!collidewborder() && wormsteady == true)//Deteccion de si el worm está estático en el suelo
@@ -167,9 +167,9 @@ void animationState()
             al_draw_bitmap(worm5, (worm->x), (worm->y), 0);
         else al_draw_bitmap(worm5, (worm->x), (worm->y), ALLEGRO_FLIP_HORIZONTAL);
     }
-}
+}*/
 
-void update(int estado) {
+/*void update(int estado) {
     switch (estado) {
     case START_MOVING_LEFT:
     {
@@ -230,4 +230,4 @@ void update(int estado) {
         break;
     }
         
-}
+}*/

@@ -20,6 +20,6 @@ public:
 	bool keyD;
 };
 
-void checkInput(allegroPtrs_t* allegro, Keys* key, bool* redraw, bool* do_exit);
+void checkInput (allegroPtrs_t* , Keys& , bool* , bool* );
 
 #endif /* INPUT_H */

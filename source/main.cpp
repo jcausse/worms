@@ -26,7 +26,7 @@ int main(void) {
 
     while (!do_exit) // idem anterior
     {
-        checkInput(&al, &keys,&redraw,&do_exit);
+        checkInput(&al, keys&, &redraw,&do_exit);
 
         if (redraw && al_is_event_queue_empty(al.eventQueue))
         {
@@ -34,7 +34,8 @@ int main(void) {
 
             move_worms(&worm1, &worm2, &keys);
 
-            draw_all();//fincion que deberia dibujar todo
+            std::cout << "coord x:" <<worm1.x << "coord y:" << worm1.y << std::endl;
+            //draw_all();//fincion que deberia dibujar todo
 
         }
     }

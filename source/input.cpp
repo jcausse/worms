@@ -2,7 +2,7 @@
 
 
 
-void checkInput(allegroPtrs_t * allegro, Keys* key,bool* redraw,bool* do_exit)
+void checkInput(allegroPtrs_t * allegro, Keys& key,bool* redraw,bool* do_exit)
 {
 
     ALLEGRO_EVENT ev;
@@ -23,27 +23,27 @@ void checkInput(allegroPtrs_t * allegro, Keys* key,bool* redraw,bool* do_exit)
             switch (ev.keyboard.keycode)
             {
             case ALLEGRO_KEY_UP:
-                key->keyUp = true;
+                key.keyUp = true;
                 break;
 
             case ALLEGRO_KEY_LEFT:
-                key->keyLeft = true;
+                key.keyLeft = true;
                 break;
 
             case ALLEGRO_KEY_RIGHT:
-                key->keyRight = true;
+                key.keyRight = true;
                 break;
 
             case ALLEGRO_KEY_W:
-                key->keyW = true;
+                key.keyW = true;
                 break;
 
             case ALLEGRO_KEY_A:
-                key->keyA = true;
+                key.keyA = true;
                 break;
 
             case ALLEGRO_KEY_D:
-                key->keyD = true;
+                key.keyD = true;
                 break;
             }
         }
@@ -53,27 +53,27 @@ void checkInput(allegroPtrs_t * allegro, Keys* key,bool* redraw,bool* do_exit)
             switch (ev.keyboard.keycode)
             {
             case ALLEGRO_KEY_UP:
-                key->keyUp = true;
+                key.keyUp = true;
                 break;
 
             case ALLEGRO_KEY_LEFT:
-                key->keyLeft = true;
+                key.keyLeft = true;
                 break;
 
             case ALLEGRO_KEY_RIGHT:
-                key->keyRight = true;
+                key.keyRight = true;
                 break;
 
             case ALLEGRO_KEY_W:
-                key->keyW = true;
+                key.keyW = true;
                 break;
 
             case ALLEGRO_KEY_A:
-                key->keyA = true;
+                key.keyA = true;
                 break;
 
             case ALLEGRO_KEY_D:
-                key->keyD = true;
+                key.keyD = true;
                 break;
             }
         }
