@@ -658,11 +658,13 @@ allegroPtrs_t* allegroInit(void) {
 }
 
 void allegroDestroy(allegroPtrs_t* allegroPtrs) {
+    //Free Allegro resources memory
     al_destroy_display(allegroPtrs->display);
     al_destroy_font(allegroPtrs->font);
     al_destroy_bitmap(allegroPtrs->background);
     al_destroy_event_queue(allegroPtrs->eventQueue);
     al_destroy_timer(allegroPtrs->tickTimer);
+    //Free memmory reserved for worms sprites bitmaps
     for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
         if (i < WJUMP_FRAMES) {
             if (allegroPtrs->wjumpArr[i] != NULL) {
@@ -675,5 +677,6 @@ void allegroDestroy(allegroPtrs_t* allegroPtrs) {
             }
         }
     }
-    free(allegroPtrs);
+    free(allegroPtrs);  //Free structure memory (originally allocated by "malloc")
+    return;
 }
