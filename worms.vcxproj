@@ -150,6 +150,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\allegroMain.cpp" />
     <ClCompile Include="source\input.cpp" />
     <ClCompile Include="source\visual.cpp" />
     <ClCompile Include="source\main.cpp" />

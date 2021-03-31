@@ -27,6 +27,9 @@
     <ClCompile Include="source\worms.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\allegroMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\constants.h">
