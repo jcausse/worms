@@ -42,22 +42,24 @@ allegroPtrs_t* allegroInit(void) {
     }
 
     //ALLEGRO RESOURCES INITIALIZATION
-    display = al_create_display(ANCHO, ALTO);
-    if (!display) {
-        fprintf(stderr, "Failed to create display!\n");
-        return POINTER_FAIL;
-    }
     font = al_load_font("../resources/arial.ttf", 20, 0);
     if (!font) {
         fprintf(stderr, "Failed to create font!\n");
-        al_destroy_display(display);
         return POINTER_FAIL;
     }
     background = al_load_bitmap("../resources/background.png");
     if (!background) {
         fprintf(stderr, "Failed to load background.png\n");
-        al_destroy_display(display);
         al_destroy_font(font);
+        return POINTER_FAIL;
+    }
+    int displayWidth = al_get_bitmap_width(background);
+    int displayHeight = al_get_bitmap_height(background);
+    display = al_create_display(displayWidth, displayHeight);
+    if (!display) {
+        fprintf(stderr, "Failed to create display!\n");
+        al_destroy_font(font);
+        al_destroy_bitmap(background);
         return POINTER_FAIL;
     }
     eventQueue = al_create_event_queue();
@@ -617,12 +619,12 @@ void allegroDestroy(allegroPtrs_t* allegroPtrs) {
     al_destroy_event_queue(allegroPtrs->eventQueue);
     for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
         if (i < WJUMP_FRAMES) {
-            if (wjumpArr[i] != NULL) {
+            if (allegroPtrs->wjumpArr[i] != NULL) {
                 al_destroy_bitmap(allegroPtrs->wjumpArr[i]);
             }
         }
         if (i < WWALK_FRAMES) {
-            if (wwalkArr[i] != NULL) {
+            if (allegroPtrs->wwalkArr[i] != NULL) {
                 al_destroy_bitmap(allegroPtrs->wwalkArr[i]);
             }
         }
