@@ -34,7 +34,7 @@ public:
 };
 
 void move_worms(Worm* worm1, Worm* worm2, Keys* key);
-int collidewborder(float x);
+int collidewborder(float x,float y);
 int isjumping(float y);
 
 #endif // WORMS_H 

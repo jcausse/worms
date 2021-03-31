@@ -103,9 +103,9 @@ void Worm:: jumping(void)
 
 
 
-int collidewborder(float x) //si choco con algo devuelve false
+int collidewborder(float x,float y) //si choco con algo devuelve false
 {
-    if (x <= BORDEXIZQ || (x + SIZEWORM) >= BORDEXDER) {
+    if (x <= BORDEXIZQ || (x + SIZEWORM) >= BORDEXDER || y > 616) {
         return false;
     }
     else {
