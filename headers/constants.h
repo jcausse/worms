@@ -26,6 +26,11 @@
 #define PISO 616
 #define SIZEWORM 60
 
+//WORM STATE CONSTANTS
+#define IDLE 0
+#define WALKING 1
+#define START_JUMPING 2
+#define JUMPING 3
 
 //MOVEMENT CONSTANTS
 #define MOVE_RATE 2.0
