@@ -26,14 +26,15 @@ public:
 	bool salto_lock;
 	bool wormright;
 
-	void go_up();
-	void go_right();
-	void go_left();
-	void jumping();
-	void released_up();
+	void go_up(void);
+	void go_right(void);
+	void go_left(void);
+	void jumping(void);
+	void released_up(void);
 };
 
 void move_worms(Worm* worm1, Worm* worm2, Keys* key);
-int collidewborder(float x, float y);
+int collidewborder(float x);
+int isjumping(float y);
 
 #endif // WORMS_H 

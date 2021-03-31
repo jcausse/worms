@@ -103,7 +103,7 @@ void Worm:: jumping(void)
 
 
 
-int collidewborder(float x, float y) //si choco con algo devuelve false
+int collidewborder(float x) //si choco con algo devuelve false
 {
     if (x <= BORDEXIZQ || (x + SIZEWORM) >= BORDEXDER) {
         return false;
@@ -114,10 +114,21 @@ int collidewborder(float x, float y) //si choco con algo devuelve false
     
 }
 
+int isjumping(float y) //si esta saltando devuelve true
+{
+    if (y == PISO) {
+        return false;
+    }
+    else {
+        return true;
+    }
+
+}
+
 /*
 void animationState()
 {
-    if (!collidewborder() && wormsteady == true)//Deteccion de si el worm está estático en el suelo
+    if (!isjumping() && wormsteady == true)//Deteccion de si el worm está estático en el suelo
     {
         if (worm->wormright == true)
             al_draw_bitmap(worm6, (worm->x), (worm->y), 0);

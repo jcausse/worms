@@ -2,7 +2,6 @@
 #define INPUT_H
 
 //INCLUDES
-#include "generalHeader.h"
 #include "allegroMain.h"
 
 //CLASSES
@@ -20,6 +19,6 @@ public:
 	bool keyD;
 };
 
-void checkInput (allegroPtrs_t* , Keys& , bool* , bool* );
+void checkInput (allegroPtrs_t *, Keys&, bool *, bool *);
 
 #endif /* INPUT_H */
