@@ -29,8 +29,7 @@
 //WORM STATE CONSTANTS
 #define IDLE 0
 #define WALKING 1
-#define START_JUMPING 2
-#define JUMPING 3
+#define JUMPING 2
 
 //MOVEMENT CONSTANTS
 #define MOVE_RATE 2.0
