@@ -37,7 +37,7 @@ public:
 	void animationState(void);
 };
 
-void move_worms(Worm* worm1, Worm* worm2, Keys* key);	
+void move_worms(Worm& worm1, Worm& worm2, Keys& key);	
 int collidewborder(float x);					//Check if the worm collides with a screen border
 int isjumping(float y);
 

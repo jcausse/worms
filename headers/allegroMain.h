@@ -25,6 +25,8 @@ typedef struct {
 	//Bitmap pointer arrays
 	ALLEGRO_BITMAP* wjumpArr[WJUMP_FRAMES];
 	ALLEGRO_BITMAP* wwalkArr[WWALK_FRAMES];
+	//Timer
+	ALLEGRO_TIMER* tickTimer = NULL;
 	//Other
 	ALLEGRO_EVENT_QUEUE* eventQueue;
 	ALLEGRO_FONT* font;

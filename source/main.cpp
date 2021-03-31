@@ -8,7 +8,7 @@
 *   Greco, Trinidad Eugenia. Legajo 61118.
 */
 
-#include "../headers/allegroMain.h"
+#include "../headers/visual.h"
 #include "../headers/worms.h"
 
 int main(void) {
@@ -25,18 +25,17 @@ int main(void) {
     bool redraw = false;
 
     while (!do_exit){ // idem anterior
-    {
-        checkInput(&al, keys&, &redraw, &do_exit);
-
-        if (redraw && al_is_event_queue_empty(al.eventQueue))
-        {
+        checkInput(&al, keys, &redraw, &do_exit);
+        if (redraw && al_is_event_queue_empty(al.eventQueue)){
             redraw = false;
 
-            move_worms(&worm1, &worm2, &keys);
+            move_worms(worm1, worm2, keys);
 
             std::cout << "coord x:" << worm1.x << "coord y:" << worm1.y << std::endl;
-            //draw_all();//fincion que deberia dibujar todo
-
+            //draw_all();//funcion que deberia dibujar todo
+            allegroRedraw(&al, worm1, worm2, &redraw);
+            
+            
         }
     }
     return 0;

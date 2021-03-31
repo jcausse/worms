@@ -14,6 +14,7 @@ allegroPtrs_t* allegroInit(void) {
     ALLEGRO_BITMAP* wwalkArr[WWALK_FRAMES];
     ALLEGRO_EVENT_QUEUE* eventQueue = NULL;
     ALLEGRO_FONT* font = NULL;
+    ALLEGRO_TIMER* tickTimer = NULL;
     //The following for cycle initializes the elements of both arrays as NULL pointers. To do this in a single
     //repetition structure, the maximum value for i is the number of elements of the largest array
     for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
@@ -70,6 +71,15 @@ allegroPtrs_t* allegroInit(void) {
         al_destroy_bitmap(background);
         return POINTER_FAIL;
     }
+    tickTimer = al_create_timer(1.0 / FPS); //crea el timer pero NO empieza a correr
+    if (!tickTimer) {
+        fprintf(stderr, "Failed to create tickTimer!\n");
+        al_destroy_display(display);
+        al_destroy_font(font);
+        al_destroy_bitmap(background);
+        al_destroy_event_queue(eventQueue);
+        return POINTER_FAIL;
+    }
 
     //ALLEGRO WORMS SPRITES INITIALIZATIONS
     wjumpArr[0] = al_load_bitmap("../resources/wjump/wjumpF1.png");
@@ -79,6 +89,7 @@ allegroPtrs_t* allegroInit(void) {
         al_destroy_font(font);
         al_destroy_bitmap(background);
         al_destroy_event_queue(eventQueue);
+        al_destroy_timer(tickTimer);
         for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
             if (i < WJUMP_FRAMES) {
                 if (wjumpArr[i] != NULL) {
@@ -596,7 +607,10 @@ allegroPtrs_t* allegroInit(void) {
 
     //ALLEGRO EVENT SOURCE EVENT REGISTERS
     al_register_event_source(eventQueue, al_get_display_event_source(display));
-
+    al_register_event_source(eventQueue, al_get_timer_event_source(tickTimer));
+    al_register_event_source(eventQueue, al_get_keyboard_event_source(keyboard));
+    //TIMER INITIALIZATION
+    al_start_timer(tickTimer); //Game tick timer (20 ms)
     //STRUCTURE FILL
     allegroPtrs->display = display;
     allegroPtrs->eventQueue = eventQueue;
@@ -617,6 +631,7 @@ void allegroDestroy(allegroPtrs_t* allegroPtrs) {
     al_destroy_font(allegroPtrs->font);
     al_destroy_bitmap(allegroPtrs->background);
     al_destroy_event_queue(allegroPtrs->eventQueue);
+    al_destroy_timer(allegroPtrs->tickTimer);
     for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
         if (i < WJUMP_FRAMES) {
             if (allegroPtrs->wjumpArr[i] != NULL) {

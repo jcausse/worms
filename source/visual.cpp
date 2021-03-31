@@ -20,15 +20,15 @@ void allegroClearToBackground(allegroPtrs_t* allegroPtrs) {
 
 bool allegroDrawWorm(allegroPtrs_t* allegroPtrs, Worm& worm){
 	int flip = ((worm.wormright == true) ? ALLEGRO_FLIP_HORIZONTAL : 0); //Worms are facing left by default
-	switch (worm.state) {
-		case walking:
-			al_draw_bitmap(allegroPtrs->wwalkArr[worm.frame], worm.x, worm.y, flip);
+	switch (worm.wormstate) {
+		case IDLE:
+			al_draw_bitmap(allegroPtrs->wwalkArr[0], worm.x, worm.y, flip);
 			break;
-		case startingJump:
-			/*!*/
+		case WALKING:
+			al_draw_bitmap(allegroPtrs->wwalkArr[worm.wormframe], worm.x, worm.y, flip);
 			break;
-		case jumping:
-			/*!*/
+		case JUMPING:
+			al_draw_bitmap(allegroPtrs->wjumpArr[worm.wormframe], worm.x, worm.y, flip);
 			break;
 		default:
 			fprintf(stderr, "visual.cpp -> allegroDrawWorm. Internal error.\n");
