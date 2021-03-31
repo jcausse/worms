@@ -19,12 +19,14 @@ public:
 	//Data members
 	float x;				//X-axis position
 	float y;				//Y-axis position
-	int wormmoves;
+	int wormmoves;			
 	int salto;
 	bool wormsteady;		//Equals "true" if the worm is NOT moving
 	int salto_cooldown;
-	bool salto_lock;
+	bool salto_lock;		//Equals "true" if the worm is jumping. Ignores keyboard input while "true"
 	bool wormright;			//Equals "true" if the worm is facing right
+	int wormframe;
+	int wormstate;
 
 	//Movement methods
 	void go_up(void);		
@@ -32,10 +34,11 @@ public:
 	void go_left(void);
 	void jumping(void);
 	void released_up(void);
+	void animationState(void);
 };
 
 void move_worms(Worm* worm1, Worm* worm2, Keys* key);	
-int collidewborder(float x,float y);					//Check if the worm collides with a screen border
+int collidewborder(float x);					//Check if the worm collides with a screen border
 int isjumping(float y);
 
 #endif // WORMS_H 

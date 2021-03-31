@@ -16,17 +16,17 @@ int main(void) {
 
     allegroPtrs_t al;
 
-    Worm worm1(800.,500.); //se inicializan ambos worms con sus posicones iniciales
-    Worm worm2(800.,500.);
+    Worm worm1(800., 500.); //se inicializan ambos worms con sus posicones iniciales
+    Worm worm2(800., 500.);
 
     Keys keys;
 
     bool do_exit = false;
     bool redraw = false;
 
-    while (!do_exit) // idem anterior
+    while (!do_exit){ // idem anterior
     {
-        checkInput(&al, keys&,&redraw,&do_exit);
+        checkInput(&al, keys&, &redraw, &do_exit);
 
         if (redraw && al_is_event_queue_empty(al.eventQueue))
         {
@@ -34,11 +34,10 @@ int main(void) {
 
             move_worms(&worm1, &worm2, &keys);
 
-            std::cout << "coord x:" <<worm1.x << "coord y:" << worm1.y << std::endl;
+            std::cout << "coord x:" << worm1.x << "coord y:" << worm1.y << std::endl;
             //draw_all();//fincion que deberia dibujar todo
 
         }
     }
-
     return 0;
 }
