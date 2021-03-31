@@ -1,6 +1,20 @@
 #include "../headers/worms.h"
 
+/*
 
+Reference System:
+The reference system used to describe both worms movement matches Allegro's reference system:
+
+(origin)-----------------> (+)   X axis
+    |
+    |
+    |
+    |
+    |
+    |
+(+) V   Y axis
+
+*/
 
 Worm::Worm(float initialXPosition, float initialYPosition){ //Constructor
     x = initialXPosition;
@@ -13,6 +27,7 @@ Worm::Worm(float initialXPosition, float initialYPosition){ //Constructor
     wormright = true;
     wormframe = 0;
     wormstate = IDLE;
+    wormkeytimer = 0;
 }
 
 
@@ -20,6 +35,8 @@ void move_worms(Worm& worm1, Worm& worm2, Keys& key){
     //Worm 1
     worm1.wormstate = IDLE;
     worm2.wormstate = IDLE;
+    
+       
     if (key.keyUp == true)
         worm1.go_up(); 
     else worm1.released_up();
@@ -43,13 +60,17 @@ void move_worms(Worm& worm1, Worm& worm2, Keys& key){
 
 
 void Worm::go_up(){
-    
+
+    wormkeytimer++;
+    if (wormkeytimer == 5) {
+        wormkeytimer = 0;
+    }
+
     wormstate = JUMPING;
     if (isjumping( y-MOVE_RATE))
         wormmoves++;
     wormsteady = false;
-    if ((salto_cooldown) == 0 && (salto_lock) == false){
-        (salto_cooldown) = SALTO_COOLDOWN;
+    if ((y>=PISO-MOVE_RATE && y<= PISO+MOVE_RATE) && (salto_lock) == false){
         (salto) = SALTO_H;
         (salto_lock) = true;
     }
@@ -60,6 +81,10 @@ void Worm:: released_up(void){
 }
 
 void Worm:: go_left(void){
+    wormkeytimer++;
+    if (wormkeytimer == 5) {
+        wormkeytimer = 0;
+    }
     wormstate = WALKING;
     if (collidewborder(x - MOVE_RATE)){
         (x) -= MOVE_RATE;
@@ -70,6 +95,10 @@ void Worm:: go_left(void){
 }
 
 void Worm:: go_right(void){
+    wormkeytimer++;
+    if (wormkeytimer == 5) {
+        wormkeytimer = 0;
+    }
     wormstate = WALKING;
     if (collidewborder(x + MOVE_RATE )){
         (x) += MOVE_RATE;
@@ -81,20 +110,20 @@ void Worm:: go_right(void){
 
 void Worm:: jumping(void){
     if (isjumping(y + MOVE_RATE)){ //El worm cae siempre que no detecte nada abajo de él
-        (y) += MOVE_RATE / 3;
+        (y) += MOVE_RATE* GRAVITY* 10 ;
         wormmoves++;
     }
     if ((salto_cooldown) > 0) //Se disminuye la variable (salto_cooldown) en cada loop, la cual sirve como un temporizador que no deja que el worm vuelva a saltar
         (salto_cooldown)--;
-    if (isjumping( y - MOVE_RATE)){ //El worm salta lo determinado por la variable saltito
-        (salto) -= 1;
-        (y) -= MOVE_RATE * SALTO_SPEED;
+    if (isjumping( y - MOVE_RATE) && salto>0){ //El worm salta lo determinado por la variable saltito
+        salto -= 1;
+        y -= MOVE_RATE * SALTO_SPEED;
     }
 }
 
 
 
-int collidewborder(float x){ //si choco con algo devuelve false
+bool collidewborder(float x){ //si choco con algo devuelve false
     if (x <= BORDEXIZQ || (x + SIZEWORM) >= BORDEXDER) {
         return false;
     }
@@ -104,11 +133,11 @@ int collidewborder(float x){ //si choco con algo devuelve false
     
 }
 
-int isjumping(float y){ //si esta saltando devuelve true
-    if (y == PISO) {
-        return false;
+bool isjumping(float y){ //si esta saltando devuelve true
+    if (y >= PISO) {
+        return false;   //El sistema de referencias en el eje y es de arriba hacia abajo
     }
-    else {
+    else {              //Si la posicion es entonces MENOR que la del piso, esta saltando
         return true;
     }
 }

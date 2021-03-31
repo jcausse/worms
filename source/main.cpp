@@ -13,27 +13,26 @@
 
 int main(void) {
     std::cout << "TP4. Worms. Grupo 9." << std::endl;
-
-    allegroPtrs_t al;
-
-    Worm worm1(800., 500.); //se inicializan ambos worms con sus posicones iniciales
-    Worm worm2(800., 500.);
-
+    
+    //Initializations
+    allegroPtrs_t* allegroPtrs = allegroInit();
+    Worm worm1(800., PISO); //se inicializan ambos worms con sus posicones iniciales
+    Worm worm2(800., PISO);
     Keys keys;
-
     bool do_exit = false;
     bool redraw = false;
 
+    //Worms simulator loop
     while (!do_exit){ // idem anterior
-        checkInput(&al, keys, &redraw, &do_exit);
-        if (redraw && al_is_event_queue_empty(al.eventQueue)){
-            redraw = false;
+        checkInput(allegroPtrs, keys, &redraw, &do_exit);
+        if ((redraw) && (al_is_event_queue_empty(allegroPtrs->eventQueue))){
+            redraw = true;
 
             move_worms(worm1, worm2, keys);
 
             std::cout << "coord x:" << worm1.x << "coord y:" << worm1.y << std::endl;
             //draw_all();//funcion que deberia dibujar todo
-            allegroRedraw(&al, worm1, worm2, &redraw);
+            allegroRedraw(allegroPtrs, worm1, worm2, &redraw);
             
             
         }

@@ -167,6 +167,37 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\background.png" />
+    <Image Include="resources\wjump\wjumpF1.png" />
+    <Image Include="resources\wjump\wjumpF10.png" />
+    <Image Include="resources\wjump\wjumpF2.png" />
+    <Image Include="resources\wjump\wjumpF3.png" />
+    <Image Include="resources\wjump\wjumpF4.png" />
+    <Image Include="resources\wjump\wjumpF5.png" />
+    <Image Include="resources\wjump\wjumpF6.png" />
+    <Image Include="resources\wjump\wjumpF7.png" />
+    <Image Include="resources\wjump\wjumpF8.png" />
+    <Image Include="resources\wjump\wjumpF9.png" />
+    <Image Include="resources\wwalk\wwalkF1.png" />
+    <Image Include="resources\wwalk\wwalkF10.png" />
+    <Image Include="resources\wwalk\wwalkF11.png" />
+    <Image Include="resources\wwalk\wwalkF12.png" />
+    <Image Include="resources\wwalk\wwalkF13.png" />
+    <Image Include="resources\wwalk\wwalkF14.png" />
+    <Image Include="resources\wwalk\wwalkF15.png" />
+    <Image Include="resources\wwalk\wwalkF2.png" />
+    <Image Include="resources\wwalk\wwalkF3.png" />
+    <Image Include="resources\wwalk\wwalkF4.png" />
+    <Image Include="resources\wwalk\wwalkF5.png" />
+    <Image Include="resources\wwalk\wwalkF6.png" />
+    <Image Include="resources\wwalk\wwalkF7.png" />
+    <Image Include="resources\wwalk\wwalkF8.png" />
+    <Image Include="resources\wwalk\wwalkF9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="resources\arial.ttf" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="packages\AllegroDeps.1.12.0\build\native\AllegroDeps.targets" Condition="Exists('packages\AllegroDeps.1.12.0\build\native\AllegroDeps.targets')" />

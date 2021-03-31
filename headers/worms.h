@@ -8,6 +8,7 @@
 //INCLUDES
 #include "generalHeader.h"
 #include "input.h"
+#include "allegroMain.h"
 
 //CLASSES
 class Worm {
@@ -27,6 +28,7 @@ public:
 	bool wormright;			//Equals "true" if the worm is facing right
 	int wormframe;
 	int wormstate;
+	int wormkeytimer;	//Timer to wait 100 ms
 
 	//Movement methods
 	void go_up(void);		
@@ -38,7 +40,7 @@ public:
 };
 
 void move_worms(Worm& worm1, Worm& worm2, Keys& key);	
-int collidewborder(float x);					//Check if the worm collides with a screen border
-int isjumping(float y);
+bool collidewborder(float x);					//Check if the worm collides with a screen border
+bool isjumping(float y);
 
 #endif // WORMS_H 

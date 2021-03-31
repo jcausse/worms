@@ -36,22 +36,22 @@ void checkInput(allegroPtrs_t * allegro, Keys& key,bool* redraw,bool* do_exit){
         else if (ev.type == ALLEGRO_EVENT_KEY_UP){
             switch (ev.keyboard.keycode){
             case ALLEGRO_KEY_UP:
-                key.keyUp = true;
+                key.keyUp = false;
                 break;
             case ALLEGRO_KEY_LEFT:
-                key.keyLeft = true;
+                key.keyLeft = false;
                 break;
             case ALLEGRO_KEY_RIGHT:
-                key.keyRight = true;
+                key.keyRight = false;
                 break;
             case ALLEGRO_KEY_W:
-                key.keyW = true;
+                key.keyW = false;
                 break;
             case ALLEGRO_KEY_A:
-                key.keyA = true;
+                key.keyA = false;
                 break;
             case ALLEGRO_KEY_D:
-                key.keyD = true;
+                key.keyD = false;
                 break;
             }
         }

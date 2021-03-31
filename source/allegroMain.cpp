@@ -41,14 +41,19 @@ allegroPtrs_t* allegroInit(void) {
         fprintf(stderr, "Failed to initialize allegro ttf fonts!\n");
         return POINTER_FAIL;
     }
+    if (!al_install_keyboard()) {
+        fprintf(stderr, "Failed to initialize allegro keyboard!\n");
+        return POINTER_FAIL;
+    }
+   
 
     //ALLEGRO RESOURCES INITIALIZATION
-    font = al_load_font("../resources/arial.ttf", 20, 0);
+    font = al_load_font("./resources/arial.ttf", 20, 0);
     if (!font) {
         fprintf(stderr, "Failed to create font!\n");
         return POINTER_FAIL;
     }
-    background = al_load_bitmap("../resources/background.png");
+    background = al_load_bitmap("./resources/background.png");
     if (!background) {
         fprintf(stderr, "Failed to load background.png\n");
         al_destroy_font(font);
@@ -82,7 +87,7 @@ allegroPtrs_t* allegroInit(void) {
     }
 
     //ALLEGRO WORMS SPRITES INITIALIZATIONS
-    wjumpArr[0] = al_load_bitmap("../resources/wjump/wjumpF1.png");
+    wjumpArr[0] = al_load_bitmap("./resources/wjump/wjumpF1.png");
     if (!wjumpArr[0]) {
         fprintf(stderr, "Failed to load wjumpF1.png\n");
         al_destroy_display(display);
@@ -104,13 +109,14 @@ allegroPtrs_t* allegroInit(void) {
         }
         return POINTER_FAIL;
     }
-    wjumpArr[1] = al_load_bitmap("../resources/wjump/wjumpF2.png");
+    wjumpArr[1] = al_load_bitmap("./resources/wjump/wjumpF2.png");
     if (!wjumpArr[1]) {
         fprintf(stderr, "Failed to load wjumpF2.png\n");
         al_destroy_display(display);
         al_destroy_font(font);
         al_destroy_bitmap(background);
         al_destroy_event_queue(eventQueue);
+        al_destroy_timer(tickTimer);
         for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
             if (i < WJUMP_FRAMES) {
                 if (wjumpArr[i] != NULL) {
@@ -125,13 +131,14 @@ allegroPtrs_t* allegroInit(void) {
         }
         return POINTER_FAIL;
     }
-    wjumpArr[2] = al_load_bitmap("../resources/wjump/wjumpF3.png");
+    wjumpArr[2] = al_load_bitmap("./resources/wjump/wjumpF3.png");
     if (!wjumpArr[2]) {
         fprintf(stderr, "Failed to load wjumpF3.png\n");
         al_destroy_display(display);
         al_destroy_font(font);
         al_destroy_bitmap(background);
         al_destroy_event_queue(eventQueue);
+        al_destroy_timer(tickTimer);
         for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
             if (i < WJUMP_FRAMES) {
                 if (wjumpArr[i] != NULL) {
@@ -146,13 +153,14 @@ allegroPtrs_t* allegroInit(void) {
         }
         return POINTER_FAIL;
     }
-    wjumpArr[3] = al_load_bitmap("../resources/wjump/wjumpF4.png");
+    wjumpArr[3] = al_load_bitmap("./resources/wjump/wjumpF4.png");
     if (!wjumpArr[3]) {
         fprintf(stderr, "Failed to load wjumpF4.png\n");
         al_destroy_display(display);
         al_destroy_font(font);
         al_destroy_bitmap(background);
         al_destroy_event_queue(eventQueue);
+        al_destroy_timer(tickTimer);
         for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
             if (i < WJUMP_FRAMES) {
                 if (wjumpArr[i] != NULL) {
@@ -166,13 +174,14 @@ allegroPtrs_t* allegroInit(void) {
             }
         }
         return POINTER_FAIL;
-    }wjumpArr[4] = al_load_bitmap("../resources/wjump/wjumpF5.png");
+    }wjumpArr[4] = al_load_bitmap("./resources/wjump/wjumpF5.png");
     if (!wjumpArr[4]) {
         fprintf(stderr, "Failed to load wjumpF5.png\n");
         al_destroy_display(display);
         al_destroy_font(font);
         al_destroy_bitmap(background);
         al_destroy_event_queue(eventQueue);
+        al_destroy_timer(tickTimer);
         for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
             if (i < WJUMP_FRAMES) {
                 if (wjumpArr[i] != NULL) {
@@ -187,13 +196,14 @@ allegroPtrs_t* allegroInit(void) {
         }
         return POINTER_FAIL;
     }
-    wjumpArr[5] = al_load_bitmap("../resources/wjump/wjumpF6.png");
+    wjumpArr[5] = al_load_bitmap("./resources/wjump/wjumpF6.png");
     if (!wjumpArr[5]) {
         fprintf(stderr, "Failed to load wjumpF6.png\n");
         al_destroy_display(display);
         al_destroy_font(font);
         al_destroy_bitmap(background);
         al_destroy_event_queue(eventQueue);
+        al_destroy_timer(tickTimer);
         for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
             if (i < WJUMP_FRAMES) {
                 if (wjumpArr[i] != NULL) {
@@ -208,13 +218,14 @@ allegroPtrs_t* allegroInit(void) {
         }
         return POINTER_FAIL;
     }
-    wjumpArr[6] = al_load_bitmap("../resources/wjump/wjumpF7.png");
+    wjumpArr[6] = al_load_bitmap("./resources/wjump/wjumpF7.png");
     if (!wjumpArr[6]) {
         fprintf(stderr, "Failed to load wjumpF7.png\n");
         al_destroy_display(display);
         al_destroy_font(font);
         al_destroy_bitmap(background);
         al_destroy_event_queue(eventQueue);
+        al_destroy_timer(tickTimer);
         for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
             if (i < WJUMP_FRAMES) {
                 if (wjumpArr[i] != NULL) {
@@ -228,13 +239,14 @@ allegroPtrs_t* allegroInit(void) {
             }
         }
         return POINTER_FAIL;
-    }wjumpArr[7] = al_load_bitmap("../resources/wjump/wjumpF8.png");
+    }wjumpArr[7] = al_load_bitmap("./resources/wjump/wjumpF8.png");
     if (!wjumpArr[7]) {
         fprintf(stderr, "Failed to load wjumpF8.png\n");
         al_destroy_display(display);
         al_destroy_font(font);
         al_destroy_bitmap(background);
         al_destroy_event_queue(eventQueue);
+        al_destroy_timer(tickTimer);
         for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
             if (i < WJUMP_FRAMES) {
                 if (wjumpArr[i] != NULL) {
@@ -249,13 +261,14 @@ allegroPtrs_t* allegroInit(void) {
         }
         return POINTER_FAIL;
     }
-    wjumpArr[8] = al_load_bitmap("../resources/wjump/wjumpF9.png");
+    wjumpArr[8] = al_load_bitmap("./resources/wjump/wjumpF9.png");
     if (!wjumpArr[8]) {
         fprintf(stderr, "Failed to load wjumpF9.png\n");
         al_destroy_display(display);
         al_destroy_font(font);
         al_destroy_bitmap(background);
         al_destroy_event_queue(eventQueue);
+        al_destroy_timer(tickTimer);
         for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
             if (i < WJUMP_FRAMES) {
                 if (wjumpArr[i] != NULL) {
@@ -270,13 +283,14 @@ allegroPtrs_t* allegroInit(void) {
         }
         return POINTER_FAIL;
     }
-    wjumpArr[9] = al_load_bitmap("../resources/wjump/wjumpF10.png");
+    wjumpArr[9] = al_load_bitmap("./resources/wjump/wjumpF10.png");
     if (!wjumpArr[9]) {
         fprintf(stderr, "Failed to load wjumpF10.png\n");
         al_destroy_display(display);
         al_destroy_font(font);
         al_destroy_bitmap(background);
         al_destroy_event_queue(eventQueue);
+        al_destroy_timer(tickTimer);
         for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
             if (i < WJUMP_FRAMES) {
                 if (wjumpArr[i] != NULL) {
@@ -291,13 +305,14 @@ allegroPtrs_t* allegroInit(void) {
         }
         return POINTER_FAIL;
     }
-    wwalkArr[0] = al_load_bitmap("../resources/wwalk/wwalkF1.png");
+    wwalkArr[0] = al_load_bitmap("./resources/wwalk/wwalkF1.png");
     if (!wwalkArr[0]) {
         fprintf(stderr, "Failed to load wwalkF1.png\n");
         al_destroy_display(display);
         al_destroy_font(font);
         al_destroy_bitmap(background);
         al_destroy_event_queue(eventQueue);
+        al_destroy_timer(tickTimer);
         for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
             if (i < WJUMP_FRAMES) {
                 if (wjumpArr[i] != NULL) {
@@ -312,13 +327,14 @@ allegroPtrs_t* allegroInit(void) {
         }
         return POINTER_FAIL;
     }
-    wwalkArr[1] = al_load_bitmap("../resources/wwalk/wwalkF2.png");
+    wwalkArr[1] = al_load_bitmap("./resources/wwalk/wwalkF2.png");
     if (!wwalkArr[1]) {
         fprintf(stderr, "Failed to load wwalkF2.png\n");
         al_destroy_display(display);
         al_destroy_font(font);
         al_destroy_bitmap(background);
         al_destroy_event_queue(eventQueue);
+        al_destroy_timer(tickTimer);
         for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
             if (i < WJUMP_FRAMES) {
                 if (wjumpArr[i] != NULL) {
@@ -333,13 +349,14 @@ allegroPtrs_t* allegroInit(void) {
         }
         return POINTER_FAIL;
     }
-    wwalkArr[2] = al_load_bitmap("../resources/wwalk/wwalkF3.png");
+    wwalkArr[2] = al_load_bitmap("./resources/wwalk/wwalkF3.png");
     if (!wwalkArr[2]) {
         fprintf(stderr, "Failed to load wwalkF3.png\n");
         al_destroy_display(display);
         al_destroy_font(font);
         al_destroy_bitmap(background);
         al_destroy_event_queue(eventQueue);
+        al_destroy_timer(tickTimer);
         for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
             if (i < WJUMP_FRAMES) {
                 if (wjumpArr[i] != NULL) {
@@ -354,13 +371,14 @@ allegroPtrs_t* allegroInit(void) {
         }
         return POINTER_FAIL;
     }
-    wwalkArr[3] = al_load_bitmap("../resources/wwalk/wwalkF4.png");
+    wwalkArr[3] = al_load_bitmap("./resources/wwalk/wwalkF4.png");
     if (!wwalkArr[3]) {
         fprintf(stderr, "Failed to load wwalkF4.png\n");
         al_destroy_display(display);
         al_destroy_font(font);
         al_destroy_bitmap(background);
         al_destroy_event_queue(eventQueue);
+        al_destroy_timer(tickTimer);
         for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
             if (i < WJUMP_FRAMES) {
                 if (wjumpArr[i] != NULL) {
@@ -374,13 +392,14 @@ allegroPtrs_t* allegroInit(void) {
             }
         }
         return POINTER_FAIL;
-    }wwalkArr[4] = al_load_bitmap("../resources/wwalk/wwalkF5.png");
+    }wwalkArr[4] = al_load_bitmap("./resources/wwalk/wwalkF5.png");
     if (!wwalkArr[4]) {
         fprintf(stderr, "Failed to load wwalkF5.png\n");
         al_destroy_display(display);
         al_destroy_font(font);
         al_destroy_bitmap(background);
         al_destroy_event_queue(eventQueue);
+        al_destroy_timer(tickTimer);
         for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
             if (i < WJUMP_FRAMES) {
                 if (wjumpArr[i] != NULL) {
@@ -395,13 +414,14 @@ allegroPtrs_t* allegroInit(void) {
         }
         return POINTER_FAIL;
     }
-    wwalkArr[5] = al_load_bitmap("../resources/wwalk/wwalkF6.png");
+    wwalkArr[5] = al_load_bitmap("./resources/wwalk/wwalkF6.png");
     if (!wwalkArr[5]) {
         fprintf(stderr, "Failed to load wwalkF6.png\n");
         al_destroy_display(display);
         al_destroy_font(font);
         al_destroy_bitmap(background);
         al_destroy_event_queue(eventQueue);
+        al_destroy_timer(tickTimer);
         for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
             if (i < WJUMP_FRAMES) {
                 if (wjumpArr[i] != NULL) {
@@ -416,13 +436,14 @@ allegroPtrs_t* allegroInit(void) {
         }
         return POINTER_FAIL;
     }
-    wwalkArr[6] = al_load_bitmap("../resources/wwalk/wwalkF7.png");
+    wwalkArr[6] = al_load_bitmap("./resources/wwalk/wwalkF7.png");
     if (!wwalkArr[6]) {
         fprintf(stderr, "Failed to load wwalkF7.png\n");
         al_destroy_display(display);
         al_destroy_font(font);
         al_destroy_bitmap(background);
         al_destroy_event_queue(eventQueue);
+        al_destroy_timer(tickTimer);
         for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
             if (i < WJUMP_FRAMES) {
                 if (wjumpArr[i] != NULL) {
@@ -436,13 +457,14 @@ allegroPtrs_t* allegroInit(void) {
             }
         }
         return POINTER_FAIL;
-    }wwalkArr[7] = al_load_bitmap("../resources/wwalk/wwalkF8.png");
+    }wwalkArr[7] = al_load_bitmap("./resources/wwalk/wwalkF8.png");
     if (!wwalkArr[7]) {
         fprintf(stderr, "Failed to load wwalkF8.png\n");
         al_destroy_display(display);
         al_destroy_font(font);
         al_destroy_bitmap(background);
         al_destroy_event_queue(eventQueue);
+        al_destroy_timer(tickTimer);
         for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
             if (i < WJUMP_FRAMES) {
                 if (wjumpArr[i] != NULL) {
@@ -457,13 +479,14 @@ allegroPtrs_t* allegroInit(void) {
         }
         return POINTER_FAIL;
     }
-    wwalkArr[8] = al_load_bitmap("../resources/wwalk/wwalkF9.png");
+    wwalkArr[8] = al_load_bitmap("./resources/wwalk/wwalkF9.png");
     if (!wwalkArr[8]) {
         fprintf(stderr, "Failed to load wwalkF9.png\n");
         al_destroy_display(display);
         al_destroy_font(font);
         al_destroy_bitmap(background);
         al_destroy_event_queue(eventQueue);
+        al_destroy_timer(tickTimer);
         for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
             if (i < WJUMP_FRAMES) {
                 if (wjumpArr[i] != NULL) {
@@ -478,13 +501,14 @@ allegroPtrs_t* allegroInit(void) {
         }
         return POINTER_FAIL;
     }
-    wwalkArr[9] = al_load_bitmap("../resources/wwalk/wwalkF10.png");
+    wwalkArr[9] = al_load_bitmap("./resources/wwalk/wwalkF10.png");
     if (!wwalkArr[9]) {
         fprintf(stderr, "Failed to load wwalkF10.png\n");
         al_destroy_display(display);
         al_destroy_font(font);
         al_destroy_bitmap(background);
         al_destroy_event_queue(eventQueue);
+        al_destroy_timer(tickTimer);
         for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
             if (i < WJUMP_FRAMES) {
                 if (wjumpArr[i] != NULL) {
@@ -499,13 +523,14 @@ allegroPtrs_t* allegroInit(void) {
         }
         return POINTER_FAIL;
     }
-    wwalkArr[10] = al_load_bitmap("../resources/wwalk/wwalkF11.png");
+    wwalkArr[10] = al_load_bitmap("./resources/wwalk/wwalkF11.png");
     if (!wwalkArr[10]) {
         fprintf(stderr, "Failed to load wwalkF11.png\n");
         al_destroy_display(display);
         al_destroy_font(font);
         al_destroy_bitmap(background);
         al_destroy_event_queue(eventQueue);
+        al_destroy_timer(tickTimer);
         for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
             if (i < WJUMP_FRAMES) {
                 if (wjumpArr[i] != NULL) {
@@ -520,13 +545,14 @@ allegroPtrs_t* allegroInit(void) {
         }
         return POINTER_FAIL;
     }
-    wwalkArr[11] = al_load_bitmap("../resources/wwalk/wwalkF12.png");
+    wwalkArr[11] = al_load_bitmap("./resources/wwalk/wwalkF12.png");
     if (!wwalkArr[11]) {
         fprintf(stderr, "Failed to load wwalkF12.png\n");
         al_destroy_display(display);
         al_destroy_font(font);
         al_destroy_bitmap(background);
         al_destroy_event_queue(eventQueue);
+        al_destroy_timer(tickTimer);
         for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
             if (i < WJUMP_FRAMES) {
                 if (wjumpArr[i] != NULL) {
@@ -541,13 +567,14 @@ allegroPtrs_t* allegroInit(void) {
         }
         return POINTER_FAIL;
     }
-    wwalkArr[12] = al_load_bitmap("../resources/wwalk/wwalkF13.png");
+    wwalkArr[12] = al_load_bitmap("./resources/wwalk/wwalkF13.png");
     if (!wwalkArr[12]) {
         fprintf(stderr, "Failed to load wwalkF13.png\n");
         al_destroy_display(display);
         al_destroy_font(font);
         al_destroy_bitmap(background);
         al_destroy_event_queue(eventQueue);
+        al_destroy_timer(tickTimer);
         for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
             if (i < WJUMP_FRAMES) {
                 if (wjumpArr[i] != NULL) {
@@ -562,13 +589,14 @@ allegroPtrs_t* allegroInit(void) {
         }
         return POINTER_FAIL;
     }
-    wwalkArr[13] = al_load_bitmap("../resources/wwalk/wwalkF14.png");
+    wwalkArr[13] = al_load_bitmap("./resources/wwalk/wwalkF14.png");
     if (!wwalkArr[13]) {
         fprintf(stderr, "Failed to load wwalkF14.png\n");
         al_destroy_display(display);
         al_destroy_font(font);
         al_destroy_bitmap(background);
         al_destroy_event_queue(eventQueue);
+        al_destroy_timer(tickTimer);
         for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
             if (i < WJUMP_FRAMES) {
                 if (wjumpArr[i] != NULL) {
@@ -583,13 +611,14 @@ allegroPtrs_t* allegroInit(void) {
         }
         return POINTER_FAIL;
     }
-    wwalkArr[14] = al_load_bitmap("../resources/wwalk/wwalkF15.png");
+    wwalkArr[14] = al_load_bitmap("./resources/wwalk/wwalkF15.png");
     if (!wwalkArr[14]) {
         fprintf(stderr, "Failed to load wwalkF15.png\n");
         al_destroy_display(display);
         al_destroy_font(font);
         al_destroy_bitmap(background);
         al_destroy_event_queue(eventQueue);
+        al_destroy_timer(tickTimer);
         for (unsigned int i = 0; i < ((WJUMP_FRAMES > WWALK_FRAMES) ? WJUMP_FRAMES : WWALK_FRAMES); i++) {
             if (i < WJUMP_FRAMES) {
                 if (wjumpArr[i] != NULL) {
@@ -605,10 +634,12 @@ allegroPtrs_t* allegroInit(void) {
         return POINTER_FAIL;
     }
 
+   
+
     //ALLEGRO EVENT SOURCE EVENT REGISTERS
     al_register_event_source(eventQueue, al_get_display_event_source(display));
     al_register_event_source(eventQueue, al_get_timer_event_source(tickTimer));
-    al_register_event_source(eventQueue, al_get_keyboard_event_source(keyboard));
+    al_register_event_source(eventQueue, al_get_keyboard_event_source());
     //TIMER INITIALIZATION
     al_start_timer(tickTimer); //Game tick timer (20 ms)
     //STRUCTURE FILL

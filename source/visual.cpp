@@ -10,12 +10,13 @@ bool allegroRedraw(allegroPtrs_t* allegroPtrs, Worm& worm1, Worm& worm2, bool* d
 	if (!allegroDrawWorm(allegroPtrs, worm2))
 		return BOOL_FAIL;
 	*doRedraw = false;
+	al_flip_display();
 	return BOOL_SUCCESS;
 }
 
 void allegroClearToBackground(allegroPtrs_t* allegroPtrs) {
-	al_draw_bitmap(allegroPtrs->background, 0, 0, 0);
-	al_flip_display();
+	al_clear_to_color(al_map_rgb(0, 0, 0));	//Clear to black before aplying background
+	al_draw_bitmap(allegroPtrs->background, 0, 0, 0);	//Transparent png background
 }
 
 bool allegroDrawWorm(allegroPtrs_t* allegroPtrs, Worm& worm){

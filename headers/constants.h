@@ -34,8 +34,8 @@
 //MOVEMENT CONSTANTS
 #define MOVE_RATE 2.0
 #define SALTO_COOLDOWN 30
-#define SALTO_H 10
-#define SALTO_SPEED 1
+#define SALTO_H 50
+#define SALTO_SPEED 4
 #define WJUMP_FRAMES 10	//Amount of different images used to jump
 #define WWALK_FRAMES 15 //Amount of different images used to walk
 
