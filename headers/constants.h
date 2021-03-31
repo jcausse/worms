@@ -23,7 +23,7 @@
 #define GRAVITY 0.24
 #define BORDEXIZQ 701
 #define BORDEXDER 1212
-#define PISOY 616
+#define PISO 616
 #define SIZEWORM 60
 
 
