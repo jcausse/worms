@@ -30,12 +30,14 @@
 #define IDLE 0
 #define WALKING 1
 #define JUMPING 2
+#define MID_AIR 3
 
 //MOVEMENT CONSTANTS
 #define MOVE_RATE 2.0
-#define SALTO_COOLDOWN 30
-#define SALTO_H 50
-#define SALTO_SPEED 4
+#define MOVE_FRATE 9.0  //Pixels x 15 frames
+#define VELOCIDAD 4.5    //Speed in the jump
+#define SALTO_COOLDOWN 10
+#define SALTO_H 10
 #define WJUMP_FRAMES 10	//Amount of different images used to jump
 #define WWALK_FRAMES 15 //Amount of different images used to walk
 

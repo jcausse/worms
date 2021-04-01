@@ -23,7 +23,7 @@ bool allegroDrawWorm(allegroPtrs_t* allegroPtrs, Worm& worm){
 	int flip = ((worm.wormright == true) ? ALLEGRO_FLIP_HORIZONTAL : 0); //Worms are facing left by default
 	switch (worm.wormstate) {
 		case IDLE:
-			al_draw_bitmap(allegroPtrs->wwalkArr[0], worm.x, worm.y, flip);
+			al_draw_bitmap(allegroPtrs->wwalkArr[worm.wormframe], worm.x, worm.y, flip);
 			break;
 		case WALKING:
 			al_draw_bitmap(allegroPtrs->wwalkArr[worm.wormframe], worm.x, worm.y, flip);
@@ -38,11 +38,3 @@ bool allegroDrawWorm(allegroPtrs_t* allegroPtrs, Worm& worm){
 	return BOOL_SUCCESS;
 }
 
-/*
-enum wormStates {
-	idle = 0,
-	walking,
-	startingJump,
-	jumping
-};
-*/

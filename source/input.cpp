@@ -4,14 +4,14 @@
 
 void checkInput(allegroPtrs_t * allegro, Keys& key,bool* redraw,bool* do_exit){
     ALLEGRO_EVENT ev;
-    if (al_get_next_event(allegro->eventQueue, &ev)){ //Toma un evento de la cola
+    if (al_get_next_event(allegro->eventQueue, &ev)){   //Takes an event
         if (ev.type == ALLEGRO_EVENT_TIMER)
             *redraw = true;
-        if (ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE)//Si se cierra el display o click de mouse cerrar
+        if (ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE)     //If the display closes
             *do_exit = true;
         else if (ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
             *do_exit = true;
-        else if (ev.type == ALLEGRO_EVENT_KEY_DOWN){
+        else if (ev.type == ALLEGRO_EVENT_KEY_DOWN){    //If a key is pressed
             switch (ev.keyboard.keycode){
             case ALLEGRO_KEY_UP:
                 key.keyUp = true;

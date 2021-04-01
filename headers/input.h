@@ -19,6 +19,6 @@ public:
 	bool keyD;
 };
 
-void checkInput (allegroPtrs_t *, Keys&, bool *, bool *);
+void checkInput (allegroPtrs_t *, Keys&, bool *, bool *); //Function that checks the keyboard input
 
 #endif /* INPUT_H */
